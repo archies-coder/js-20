@@ -1,5 +1,15 @@
 export function toNumber(value) {
-  // TODO: implement according to level-01/README acceptance criteria
-  // Write tests-first and make this pass all cases
-  throw new Error("Implement toNumber");
+  console.log(value, typeof value);
+  if (typeof value === "number") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const tryParseInt = parseInt(value.trim());
+    if (Number.isNaN(tryParseInt)) {
+      throw new TypeError("Invalid number");
+    }
+  }
+
+  return parseInt(value.trim());
 }

@@ -1,4 +1,12 @@
 export function stringify(value) {
-  // TODO: implement according to level-01/README acceptance criteria
-  throw new Error("Implement stringify");
+  if (typeof value === "object" && !Array.isArray(value) && value !== null) {
+    const sortedKyes = Object.keys(value).sort();
+    let sortedObject = {};
+    for (const key of sortedKyes) {
+      sortedObject[key] = value[key];
+    }
+    return JSON.stringify(sortedObject);
+  }
+
+  return JSON.stringify(value);
 }
